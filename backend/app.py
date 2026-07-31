@@ -24,6 +24,12 @@ model = joblib.load("model/model.pkl")
 
 def get_db_connection():
     return mysql.connector.connect(**db_config)
+try:
+    conn = mysql.connector.connect(**db_config)
+    print("AIVEN MYSQL CONNECTED ✅")
+    conn.close()
+except Exception as e:
+    print("DATABASE ERROR ❌", e)
 
 
 @app.route("/")
