@@ -100,7 +100,7 @@ onclick="saveWishlist(${property.id})">
 
 function loadProperties() {
 
-    fetch("http://127.0.0.1:5000/properties")
+    fetch("/properties")
 
     .then(res => res.json())
 
@@ -118,7 +118,7 @@ document.getElementById("searchBtn").addEventListener("click", () => {
 
     const bedrooms = document.getElementById("bedrooms").value;
 
-    fetch(`http://127.0.0.1:5000/search_properties?city=${encodeURIComponent(city)}&price=${price}&bedrooms=${bedrooms}`)
+    fetch(`/search_properties?city=${encodeURIComponent(city)}&price=${price}&bedrooms=${bedrooms}`)
 
     .then(res => res.json())
 
@@ -128,7 +128,7 @@ document.getElementById("searchBtn").addEventListener("click", () => {
 
 function saveWishlist(propertyId){
 
-fetch("http://127.0.0.1:5000/wishlist",{
+fetch("/wishlist",{
 
 method:"POST",
 

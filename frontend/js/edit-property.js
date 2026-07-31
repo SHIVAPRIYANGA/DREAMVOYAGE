@@ -2,7 +2,7 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
 // Load property details
-fetch(`http://127.0.0.1:5000/property_edit/${id}`)
+fetch(`/property_edit/${id}`)
 .then(res => res.json())
 .then(property => {
 

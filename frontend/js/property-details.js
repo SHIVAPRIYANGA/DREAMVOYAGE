@@ -4,7 +4,7 @@ const id = params.get("id");
 
 let currentProperty = null;
 
-fetch(`http://127.0.0.1:5000/property/${id}`)
+fetch(`/property/${id}`)
 
 .then(res=>res.json())
 
@@ -40,7 +40,7 @@ property.description;
 
 function saveWishlist(){
 
-fetch("http://127.0.0.1:5000/wishlist",{
+fetch("/wishlist",{
 
 method:"POST",
 
@@ -69,7 +69,7 @@ alert(data.message);
 
 function predictPrice(){
 
-fetch("http://127.0.0.1:5000/predict_price",{
+fetch("/predict_price",{
 
 method:"POST",
 

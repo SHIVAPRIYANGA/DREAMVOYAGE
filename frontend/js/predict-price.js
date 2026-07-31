@@ -11,7 +11,7 @@ document.getElementById("predictForm").addEventListener("submit", function(e){
 
     };
 
-    fetch("http://127.0.0.1:5000/predict_price",{
+    fetch("/predict_price",{
 
         method:"POST",
 

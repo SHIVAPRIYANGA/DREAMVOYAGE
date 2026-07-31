@@ -68,7 +68,7 @@ document.getElementById("propertyForm").addEventListener("submit", function(e){
         document.getElementById("image").files[0]
     );
 
-    fetch("http://127.0.0.1:5000/add_property",{
+    fetch("/add_property",{
 
         method:"POST",
 

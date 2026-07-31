@@ -1,6 +1,6 @@
 const userId = 1;
 
-fetch(`http://127.0.0.1:5000/wishlist/${userId}`)
+fetch(`/wishlist/${userId}`)
 
 .then(res => res.json())
 

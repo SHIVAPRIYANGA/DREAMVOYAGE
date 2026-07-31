@@ -1,6 +1,6 @@
 function loadProperties() {
 
-    fetch("http://127.0.0.1:5000/admin/properties")
+    fetch("/admin/properties")
 
     .then(res => res.json())
 
@@ -58,7 +58,7 @@ function deleteProperty(id) {
 
     if(confirm("Are you sure you want to delete this property?")) {
 
-        fetch(`http://127.0.0.1:5000/delete_property/${id}`, {
+        fetch(`/delete_property/${id}`, {
 
             method:"DELETE"
 

@@ -1,5 +1,5 @@
 // Top Cards
-fetch("http://127.0.0.1:5000/analytics")
+fetch("/analytics")
 
 .then(res => res.json())
 
@@ -17,7 +17,7 @@ fetch("http://127.0.0.1:5000/analytics")
 });
 
 // Bar Chart
-fetch("http://127.0.0.1:5000/analytics_chart")
+fetch("/analytics_chart")
 
 .then(res => res.json())
 
@@ -50,7 +50,7 @@ fetch("http://127.0.0.1:5000/analytics_chart")
 });
 
 // Pie Chart
-fetch("http://127.0.0.1:5000/analytics")
+fetch("/analytics")
 
 .then(res => res.json())
 
