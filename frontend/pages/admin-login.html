@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | DreamVoyage</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/register.css" />
+</head>
+<body>
+  <div class="auth-page">
+    <header class="auth-header">
+      <a href="../index.html" class="brand-pill">
+        <i class="fa-solid fa-house"></i>
+        <span>DreamVoyage</span>
+      </a>
+      <nav class="auth-nav">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="auth-shell">
+      <section class="auth-hero">
+        <div class="hero-badge">Admin Access</div>
+        <h1>Guide the platform with calm precision and clear insight.</h1>
+        <p>Securely sign in to the DreamVoyage admin panel and oversee listings, users, and market intelligence with ease.</p>
+        <ul class="hero-list">
+          <li><i class="fa-solid fa-check"></i> Monitor property activity</li>
+          <li><i class="fa-solid fa-check"></i> Review user and listing data</li>
+          <li><i class="fa-solid fa-check"></i> Access analytics tools</li>
+        </ul>
+      </section>
+
+      <section class="auth-card">
+        <div class="card-top">
+          <h2>Admin Login</h2>
+          <p>Welcome back, administrator</p>
+        </div>
+        <form id="loginForm">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" class="form-control" placeholder="Enter your email" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-group">
+              <input type="password" id="password" class="form-control" placeholder="Enter your password" required />
+              <span class="input-group-text" onclick="togglePassword()">
+                <i class="fa-solid fa-eye" id="eyeIcon"></i>
+              </span>
+            </div>
+          </div>
+          <button type="submit" class="btn-auth">Login</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="../js/login.js"></script>
+</body>
+</html>

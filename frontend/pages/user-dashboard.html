@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DreamVoyage | User Dashboard</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+:root{
+  --dream-blue:#2563eb;
+  --dream-blue-dark:#1d4ed8;
+  --text-dark:#12253f;
+  --muted:#64748b;
+}
+
+*{font-family:'Times New Roman',serif;}
+
+body{
+  background:
+    linear-gradient(135deg, rgba(245,250,255,0.94), rgba(238,246,255,0.94)),
+    url("../images/hero/home.jpg") center/cover fixed;
+  color:var(--text-dark);
+}
+
+.navbar{
+  background:rgba(255,255,255,0.96);
+  box-shadow:0 12px 35px rgba(15,23,42,.12);
+  padding:14px 0;
+  border-bottom:1px solid rgba(37,99,235,.08);
+}
+
+.navbar-brand{font-size:30px;font-weight:700;color:var(--dream-blue)!important;}
+.nav-link{color:#23415f!important;font-weight:600;}
+.navbar .btn-warning{background:#fbbf24;color:#1f2937;border:none;}
+.navbar .btn-dark{background:#12304b;border:none;}
+.navbar .btn-danger{background:#dc2626;border:none;}
+
+.hero{
+  min-height:48vh;
+  background:linear-gradient(rgba(2,24,56,.72),rgba(2,24,56,.72)),url("../images/hero/home.jpg");
+  background-size:cover;
+  background-position:center;
+  display:flex;justify-content:center;align-items:center;text-align:center;color:white;position:relative;overflow:hidden;
+  border-radius:0 0 28px 28px;
+  box-shadow:0 16px 40px rgba(15,23,42,.14);
+}
+
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at top right,rgba(255,255,255,.16),transparent 32%);pointer-events:none;}
+.hero > div{position:relative;z-index:1;max-width:760px;padding:20px;}
+.hero h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;margin-bottom:12px;}
+.hero p{font-size:20px;opacity:.95;}
+
+.search-box{
+  background:white;
+  margin-top:-55px;
+  padding:30px;
+  border-radius:26px;
+  box-shadow:0 22px 55px rgba(15,23,42,.09);
+  position:relative;z-index:100;border:1px solid rgba(37,99,235,.08);
+}
+
+.stats{
+  background:white;
+  padding:25px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 16px 35px rgba(15,23,42,.08);
+  transition:.3s;
+  border:1px solid rgba(37,99,235,.08);
+}
+.stats:hover{transform:translateY(-8px);}
+.stats h2{color:var(--dream-blue);font-weight:700;}
+
+.card{
+  border:none;border-radius:24px;overflow:hidden;box-shadow:0 16px 35px rgba(15,23,42,.08);transition:.3s;border:1px solid rgba(37,99,235,.08);
+}
+.card:hover{transform:translateY(-10px);box-shadow:0 22px 45px rgba(37,99,235,.15);}
+.card img{height:240px;object-fit:cover;}
+.price{font-size:24px;font-weight:bold;color:var(--dream-blue);}
+
+.btn-primary,.btn-success,.btn-warning,.btn-danger{border-radius:999px;}
+
+footer{
+  margin-top:80px;background:linear-gradient(135deg,#10213d 0%,#1e3a8a 100%);color:white;padding:35px;text-align:center;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+<div class="container">
+
+<a class="navbar-brand" href="index.html">
+
+🏡 DreamVoyage
+
+</a>
+
+<button
+class="navbar-toggler"
+data-bs-toggle="collapse"
+data-bs-target="#navbarNav">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div
+class="collapse navbar-collapse"
+id="navbarNav">
+
+<ul class="navbar-nav ms-auto align-items-center">
+
+<li class="nav-item">
+
+<a class="nav-link text-white"
+href="index.html">
+
+Home
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link text-white"
+href="about.html">
+
+About
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link text-white"
+href="contact.html">
+
+Contact
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a class="nav-link text-white"
+href="predict-price.html">
+
+AI Prediction
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<a
+href="wishlist.html"
+class="btn btn-warning ms-2">
+
+❤️ Wishlist
+
+</a>
+
+</li>
+
+<li class="nav-item">
+
+<button
+class="btn btn-dark ms-2"
+onclick="toggleDarkMode()">
+
+🌙 Dark
+
+</button>
+
+</li>
+
+<li class="nav-item">
+
+<button
+class="btn btn-danger ms-2"
+onclick="logout()">
+
+Logout
+
+</button>
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div>
+
+<h1>
+
+Welcome,
+
+<span id="welcomeUser">
+
+User
+
+</span>
+
+👋
+
+</h1>
+
+<p>
+
+Find your perfect home with AI-powered recommendations.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- Search Section -->
+
+<div class="container">
+
+<div class="search-box">
+
+<div class="row g-3 align-items-end">
+
+<div class="col-md-4">
+
+<label class="form-label fw-semibold">
+
+📍 City
+
+</label>
+
+<input
+type="text"
+id="searchCity"
+class="form-control"
+placeholder="Search by City">
+
+</div>
+
+<div class="col-md-3">
+
+<label class="form-label fw-semibold">
+
+💰 Maximum Price
+
+</label>
+
+<input
+type="number"
+id="maxPrice"
+class="form-control"
+placeholder="Enter Maximum Price">
+
+</div>
+
+<div class="col-md-3">
+
+<label class="form-label fw-semibold">
+
+🛏 Bedrooms
+
+</label>
+
+<select
+id="bedrooms"
+class="form-select">
+
+<option value="">All Bedrooms</option>
+
+<option value="1">1 BHK</option>
+
+<option value="2">2 BHK</option>
+
+<option value="3">3 BHK</option>
+
+<option value="4">4+ BHK</option>
+
+</select>
+
+</div>
+
+<div class="col-md-2">
+
+<button
+id="searchBtn"
+class="btn btn-primary w-100">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+Search
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Statistics -->
+
+<div class="row mt-5 mb-5">
+<div class="col-md-3 mb-4"><div class="stats"><h2>500+</h2><p>Verified Properties</p></div></div>
+<div class="col-md-3 mb-4"><div class="stats"><h2>25+</h2><p>Cities Covered</p></div></div>
+<div class="col-md-3 mb-4"><div class="stats"><h2>1000+</h2><p>Happy Customers</p></div></div>
+<div class="col-md-3 mb-4"><div class="stats"><h2>24×7</h2><p>Support</p></div></div>
+</div>
+
+<!-- Heading -->
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <div>
+    <h2 class="fw-bold">🏠 Available Properties</h2>
+    <p class="text-muted">Browse the latest verified properties across India.</p>
+  </div>
+</div>
+
+<!-- Property Cards -->
+
+<div
+class="row g-4"
+id="propertyContainer">
+
+</div>
+
+</div>
+
+<!-- Footer -->
+
+<footer>
+
+<div class="container">
+
+<h3>
+
+🏡 DreamVoyage
+
+</h3>
+
+<p>
+
+Your trusted AI-powered real estate platform.
+
+</p>
+
+<div class="mt-3">
+
+<a
+href="about.html"
+class="text-white text-decoration-none mx-2">
+
+About
+
+</a>
+
+|
+
+<a
+href="contact.html"
+class="text-white text-decoration-none mx-2">
+
+Contact
+
+</a>
+
+|
+
+<a
+href="predict-price.html"
+class="text-white text-decoration-none mx-2">
+
+AI Prediction
+
+</a>
+
+|
+
+<a
+href="wishlist.html"
+class="text-white text-decoration-none mx-2">
+
+Wishlist
+
+</a>
+
+</div>
+
+<p class="mt-3">
+
+© 2026 DreamVoyage. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+<!-- Authentication -->
+
+<script>
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(!user){
+
+    alert("Please login first!");
+
+    window.location.href="login.html";
+
+}else{
+
+    document.getElementById("welcomeUser").innerHTML =
+    user.full_name;
+
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="../js/logout.js"></script>
+
+<script src="../js/user-dashboard.js"></script>
+
+</body>
+
+</html>

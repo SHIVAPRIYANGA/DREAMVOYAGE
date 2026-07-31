@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Property Details | DreamVoyage</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+
+<style>
+
+body{
+background:linear-gradient(135deg,#f7fbff 0%,#eef6ff 100%);
+font-family:'Times New Roman',serif;
+color:#1f2937;
+}
+
+.navbar{
+background:rgba(255,255,255,0.96);
+box-shadow:0 12px 35px rgba(15,23,42,.12);
+border-bottom:1px solid rgba(37,99,235,.08);
+}
+
+.navbar-brand{color:#23415f!important;}
+
+.navbar-brand{
+font-size:30px;
+font-weight:700;
+}
+
+.property-image{
+width:100%;
+height:560px;
+object-fit:cover;
+border-radius:24px;
+box-shadow:0 24px 55px rgba(15,23,42,.16);
+transition:.4s;
+}
+
+.property-image:hover{
+transform:scale(1.02);
+}
+
+.info-card{
+background:#fff;
+padding:35px;
+border-radius:24px;
+box-shadow:0 20px 45px rgba(15,23,42,.08);
+border:1px solid rgba(37,99,235,.08);
+}
+
+.badge-sale{
+display:inline-block;
+background:#2563eb;
+color:white;
+padding:8px 18px;
+border-radius:30px;
+font-size:14px;
+font-weight:600;
+margin-bottom:15px;
+}
+
+.price{
+font-size:42px;
+font-weight:700;
+color:#2563eb;
+}
+
+.location{
+font-size:18px;
+color:#64748b;
+margin-bottom:20px;
+}
+
+.feature{
+background:#f8f9fa;
+padding:20px;
+border-radius:18px;
+text-align:center;
+transition:.3s;
+height:100%;
+}
+
+.feature i{
+font-size:28px;
+color:#2563eb;
+margin-bottom:10px;
+}
+
+.feature:hover{
+background:#2563eb;
+color:white;
+transform:translateY(-8px);
+}
+
+.feature:hover i{
+color:white;
+}
+
+.section-title{
+font-weight:700;
+margin-top:35px;
+margin-bottom:20px;
+}
+
+.amenity{
+display:inline-block;
+background:#2563eb;
+color:white;
+padding:10px 18px;
+border-radius:30px;
+margin:8px;
+font-size:15px;
+transition:.3s;
+}
+
+.amenity:hover{
+background:#146c43;
+transform:translateY(-3px);
+}
+
+.action-btn{
+height:55px;
+border-radius:999px;
+font-weight:600;
+}
+
+.prediction-card{
+display:none;
+background:#d1e7dd;
+border-left:6px solid #2563eb;
+padding:18px;
+border-radius:12px;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+<div class="container">
+
+<a class="navbar-brand" href="../index.html">
+
+🏡 DreamVoyage
+
+</a>
+
+<div class="ms-auto">
+
+<a href="user-dashboard.html" class="btn btn-light">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back
+
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Property Section -->
+
+<div class="container py-5">
+
+<div class="row g-5">
+
+<div class="col-lg-7">
+
+<img
+id="propertyImage"
+class="property-image"
+src="../images/noimage.avif"
+alt="Property Image">
+
+</div>
+
+<div class="col-lg-5">
+
+<div class="info-card">
+
+<span class="badge-sale">
+
+🏡 FOR SALE
+
+</span>
+
+<h2
+id="propertyName"
+class="fw-bold">
+
+Luxury Villa
+
+</h2>
+
+<p
+id="propertyCity"
+class="location">
+
+📍 Chennai
+
+</p>
+
+<h1
+id="propertyPrice"
+class="price">
+
+₹ 0
+
+</h1>
+
+<hr>
+
+<div class="row g-3">
+
+<div class="col-4">
+
+<div class="feature">
+
+<i class="fa-solid fa-bed"></i>
+
+<h5 id="bedrooms">0</h5>
+
+<small>Bedrooms</small>
+
+</div>
+
+</div>
+
+<div class="col-4">
+
+<div class="feature">
+
+<i class="fa-solid fa-bath"></i>
+
+<h5 id="bathrooms">0</h5>
+
+<small>Bathrooms</small>
+
+</div>
+
+</div>
+
+<div class="col-4">
+
+<div class="feature">
+
+<i class="fa-solid fa-ruler-combined"></i>
+
+<h5 id="sqft">0</h5>
+
+<small>Sq.ft</small>
+
+</div>
+
+</div>
+
+</div>
+
+<h4 class="section-title">
+
+Property Description
+
+</h4>
+
+<p
+id="description"
+class="text-muted">
+
+Loading property details...
+
+</p>
+
+<h4 class="section-title">
+
+Amenities
+
+</h4>
+
+<div>
+
+<span class="amenity">
+🏊 Swimming Pool
+</span>
+
+<span class="amenity">
+🚗 Parking
+</span>
+
+<span class="amenity">
+💪 Gym
+</span>
+
+<span class="amenity">
+🛡 24×7 Security
+</span>
+
+<span class="amenity">
+🌳 Garden
+</span>
+
+<span class="amenity">
+⚡ Power Backup
+</span>
+
+<span class="amenity">
+🛗 Lift
+</span>
+
+<span class="amenity">
+📶 High-Speed Internet
+</span>
+
+</div>
+
+<div class="d-grid gap-3 mt-4">
+
+<button
+class="btn btn-danger btn-lg action-btn"
+onclick="saveWishlist()">
+
+❤️ Save to Wishlist
+
+</button>
+
+<button
+class="btn btn-primary btn-lg action-btn"
+onclick="predictPrice()">
+
+🤖 Predict AI Price
+
+</button>
+
+<a
+href="tel:+919876543210"
+class="btn btn-primary btn-lg action-btn">
+
+📞 Contact Agent
+
+</a>
+
+</div>
+
+<div
+id="predictionResult"
+class="prediction-card">
+
+<h5>
+
+🤖 AI Estimated Price
+
+</h5>
+
+<p class="mb-0">
+
+Loading...
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr class="my-5">
+
+<div class="row">
+
+<div class="col-lg-8">
+
+<h3 class="fw-bold mb-4">
+
+📍 Property Location
+
+</h3>
+
+<div class="card shadow border-0 rounded-4">
+
+<div class="card-body">
+
+<p class="mb-3">
+
+This property is located in a prime residential area with easy access to schools, hospitals, shopping malls, restaurants, metro stations, and public transportation.
+
+</p>
+
+<iframe
+
+src="https://maps.google.com/maps?q=Chennai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+
+width="100%"
+
+height="350"
+
+style="border:0;border-radius:15px;"
+
+loading="lazy">
+
+</iframe>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<h3 class="fw-bold mb-4">
+
+🏡 Property Highlights
+
+</h3>
+
+<div class="card shadow border-0 rounded-4">
+
+<div class="card-body">
+
+<ul class="list-group list-group-flush">
+
+<li class="list-group-item">
+✔ Ready to Move
+</li>
+
+<li class="list-group-item">
+✔ Loan Available
+</li>
+
+<li class="list-group-item">
+✔ Free Registration Support
+</li>
+
+<li class="list-group-item">
+✔ Premium Locality
+</li>
+
+<li class="list-group-item">
+✔ High Resale Value
+</li>
+
+<li class="list-group-item">
+✔ Verified by DreamVoyage
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<hr class="my-5">
+
+<h2 class="text-center fw-bold mb-5">
+
+🏘 Similar Properties
+
+</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="card shadow border-0 rounded-4 h-100">
+
+<img
+src="https://images.unsplash.com/photo-1600585154526-990dced4db0d"
+class="card-img-top">
+
+<div class="card-body">
+
+<h5>Luxury Villa</h5>
+
+<p>📍 Chennai</p>
+
+<h4 class="text-success">
+
+₹1.20 Cr
+
+</h4>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card shadow border-0 rounded-4 h-100">
+
+<img
+src="https://images.unsplash.com/photo-1570129477492-45c003edd2be"
+class="card-img-top">
+
+<div class="card-body">
+
+<h5>Modern Apartment</h5>
+
+<p>📍 Bangalore</p>
+
+<h4 class="text-success">
+
+₹85 Lakh
+
+</h4>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card shadow border-0 rounded-4 h-100">
+
+<img
+src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
+class="card-img-top">
+
+<div class="card-body">
+
+<h5>Family House</h5>
+
+<p>📍 Hyderabad</p>
+
+<h4 class="text-success">
+
+₹95 Lakh
+
+</h4>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<!-- Footer -->
+
+<footer class="bg-dark text-white mt-5">
+
+<div class="container py-5">
+
+<div class="row">
+
+<div class="col-md-4">
+
+<h3>🏡 DreamVoyage</h3>
+
+<p>
+
+AI Powered Real Estate Platform helping buyers find their dream home with smart price prediction.
+
+</p>
+
+</div>
+
+<div class="col-md-4">
+
+<h4>Quick Links</h4>
+
+<ul class="list-unstyled">
+
+<li><a href="../index.html" class="text-white text-decoration-none">Home</a></li>
+
+<li><a href="about.html" class="text-white text-decoration-none">About</a></li>
+
+<li><a href="user-dashboard.html" class="text-white text-decoration-none">Properties</a></li>
+
+<li><a href="wishlist.html" class="text-white text-decoration-none">Wishlist</a></li>
+
+</ul>
+
+</div>
+
+<div class="col-md-4">
+
+<h4>Contact</h4>
+
+<p>📍 Chennai, Tamil Nadu</p>
+
+<p>📞 +91 98765 43210</p>
+
+<p>📧 support@dreamvoyage.com</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="text-center mb-0">
+
+© 2026 DreamVoyage. All Rights Reserved.
+
+</p>
+
+</div>
+
+</footer>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Property Details JS -->
+
+<script src="../js/property-details.js"></script>
+
+<script>
+
+// Protect page
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(!user){
+
+alert("Please login first!");
+
+window.location.href="login.html";
+
+}
+
+// Demo AI Prediction
+
+function predictPrice(){
+
+const result=document.getElementById("predictionResult");
+
+const price=document.getElementById("propertyPrice").innerText;
+
+result.style.display="block";
+
+result.innerHTML=`
+
+<h5>🤖 AI Price Prediction</h5>
+
+<p>
+
+Estimated Market Price:
+<strong>${price}</strong>
+
+</p>
+
+<p class="mb-0 text-success">
+
+Excellent investment based on current market trends.
+
+</p>
+
+`;
+
+}
+
+</script>
+
+</body>
+
+</html>

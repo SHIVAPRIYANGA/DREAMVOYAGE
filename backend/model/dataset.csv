@@ -1,0 +1,11 @@
+city,bedrooms,bathrooms,sqft,price
+Chennai,2,2,1000,4500000
+Chennai,3,2,1500,6500000
+Chennai,4,3,2200,9800000
+Bangalore,2,2,1200,7000000
+Bangalore,3,3,1800,10500000
+Hyderabad,2,2,1100,5200000
+Hyderabad,3,2,1600,7600000
+Coimbatore,2,2,1300,4800000
+Coimbatore,3,3,1900,7200000
+Madurai,2,1,900,3500000

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Add Property | DreamVoyage</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+*{
+
+font-family:'Times New Roman',serif;
+
+}
+
+body{
+background:linear-gradient(135deg,#f7fbff 0%,#eef6ff 100%);
+}
+
+.navbar{
+background:rgba(255,255,255,0.96);
+box-shadow:0 12px 35px rgba(15,23,42,.12);
+border-bottom:1px solid rgba(37,99,235,.08);
+}
+
+.navbar-brand,.nav-link{color:#23415f!important;}
+
+.navbar-brand{
+
+font-size:28px;
+
+font-weight:700;
+
+}
+
+.hero{
+
+min-height:35vh;
+
+background:
+
+linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),
+
+url("../images/properties/property4.jpg");
+
+background-size:cover;
+
+background-position:center;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+color:white;
+
+}
+
+.hero h1{
+
+font-size:clamp(2rem,4vw,3rem);
+
+font-weight:700;
+
+}
+
+.form-card{
+
+background:white;
+
+margin-top:-60px;
+
+border-radius:28px;
+
+padding:40px;
+
+box-shadow:0 24px 55px rgba(15,23,42,.08);
+
+position:relative;
+
+border:1px solid rgba(25,135,84,.06);
+
+}
+
+.form-control,
+
+textarea{
+
+border-radius:14px;
+
+padding:12px;
+
+}
+
+.preview{
+
+width:100%;
+
+height:280px;
+
+border-radius:20px;
+
+object-fit:cover;
+
+border:2px dashed #2563eb;
+
+background:#f8f9fa;
+
+}
+
+.btn-success{
+
+padding:15px;
+
+font-size:18px;
+
+border-radius:999px;
+
+font-weight:600;
+
+}
+
+.feature-box{
+
+background:white;
+
+padding:25px;
+
+border-radius:20px;
+
+text-align:center;
+
+box-shadow:0 16px 35px rgba(15,23,42,.07);
+
+height:100%;
+
+border:1px solid rgba(25,135,84,.06);
+
+}
+
+.feature-box i{
+
+font-size:40px;
+
+color:#2563eb;
+
+margin-bottom:15px;
+
+}
+
+footer{
+
+background:#111827;
+
+color:white;
+
+text-align:center;
+
+padding:30px;
+
+margin-top:70px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+<div class="container">
+
+<a class="navbar-brand" href="admin-dashboard.html">
+
+🏡 DreamVoyage Admin
+
+</a>
+
+<div class="ms-auto">
+
+<a href="admin-dashboard.html" class="btn btn-light me-2">
+
+Dashboard
+
+</a>
+
+<a href="manage-properties.html" class="btn btn-warning">
+
+Manage Properties
+
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div>
+
+<h1>
+
+Add New Property
+
+</h1>
+
+<p>
+
+Create attractive listings for buyers.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- Form -->
+
+<div class="container">
+
+<div class="row justify-content-center">
+
+<div class="col-lg-10">
+
+<div class="form-card">
+
+<h2 class="text-center mb-5">
+
+🏡 Property Details
+
+</h2>
+
+<form id="propertyForm">
+
+<div class="row">
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Property Name
+
+</label>
+
+<input
+type="text"
+id="property_name"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+City
+
+</label>
+
+<input
+type="text"
+id="city"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Area
+
+</label>
+
+<input
+type="text"
+id="area"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Price
+
+</label>
+
+<input
+type="number"
+id="price"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<label class="form-label">
+
+Bedrooms
+
+</label>
+
+<input
+type="number"
+id="bedrooms"
+class="form-control">
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<label class="form-label">
+
+Bathrooms
+
+</label>
+
+<input
+type="number"
+id="bathrooms"
+class="form-control">
+
+</div>
+
+<div class="col-md-4 mb-4">
+
+<label class="form-label">
+
+Square Feet
+
+</label>
+
+<input
+type="number"
+id="sqft"
+class="form-control">
+
+</div>
+
+<div class="col-12 mb-4">
+
+<label class="form-label">
+
+Description
+
+</label>
+
+<textarea
+id="description"
+rows="5"
+class="form-control"></textarea>
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<label class="form-label">
+
+Upload Property Image
+
+</label>
+
+<input
+type="file"
+id="image"
+class="form-control"
+accept="image/*">
+
+</div>
+
+<div class="col-md-6 mb-4">
+
+<img
+id="preview"
+class="preview"
+src="../images/no-image.png">
+
+</div>
+
+<div class="col-12">
+
+<button
+class="btn btn-primary w-100">
+
+<i class="fa-solid fa-plus"></i>
+
+Add Property
+
+</button>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Features -->
+
+<div class="row mt-5 g-4">
+
+<div class="col-md-4">
+
+<div class="feature-box">
+
+<i class="fa-solid fa-house"></i>
+
+<h4>
+
+Verified Listings
+
+</h4>
+
+<p>
+
+Create trusted property listings.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="feature-box">
+
+<i class="fa-solid fa-camera"></i>
+
+<h4>
+
+Image Preview
+
+</h4>
+
+<p>
+
+Upload beautiful property photos.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="feature-box">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h4>
+
+Increase Sales
+
+</h4>
+
+<p>
+
+Professional listings attract buyers.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+<h4>
+
+🏡 DreamVoyage
+
+</h4>
+
+<p>
+
+Professional Real Estate Admin Portal
+
+</p>
+
+<p>
+
+© 2026 DreamVoyage. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<script>
+
+document.getElementById("image").addEventListener("change",function(){
+
+const file=this.files[0];
+
+if(file){
+
+document.getElementById("preview").src=URL.createObjectURL(file);
+
+}
+
+});
+
+</script>
+
+<script src="../js/add-property.js"></script>
+
+</body>
+
+</html>

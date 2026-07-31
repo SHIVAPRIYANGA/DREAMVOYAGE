@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Price Prediction | DreamVoyage</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+    background:linear-gradient(135deg,#f7fbff 0%,#eef6ff 100%);
+    font-family:'Times New Roman',serif;
+}
+
+.navbar{
+    background:rgba(255,255,255,0.96);
+    box-shadow:0 12px 35px rgba(15,23,42,.12);
+    border-bottom:1px solid rgba(37,99,235,.08);
+}
+
+.navbar-brand,.nav-link{color:#23415f!important;}
+
+.navbar-brand{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+.hero{
+
+    background:linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.58)),
+    url("../images/hero/home.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    min-height:45vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    text-align:center;
+
+}
+
+.hero h1{
+
+    font-size:clamp(2rem,4vw,3rem);
+
+    font-weight:700;
+
+}
+
+.predict-card{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:24px;
+
+    box-shadow:0 24px 55px rgba(15,23,42,.08);
+
+    margin-top:-70px;
+
+    position:relative;
+
+    border:1px solid rgba(25,135,84,.06);
+
+}
+
+.form-control,
+.form-select{
+
+    height:50px;
+
+    border-radius:14px;
+
+}
+
+.btn-success{
+
+    height:50px;
+
+    font-weight:600;
+
+    border-radius:999px;
+
+}
+
+#result{
+
+    background:#198754;
+
+    color:white;
+
+    border-radius:16px;
+
+    padding:25px;
+
+    display:none;
+
+    text-align:center;
+
+    margin-top:25px;
+
+}
+
+.feature{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:0 16px 35px rgba(15,23,42,.08);
+
+    transition:.3s;
+
+    border:1px solid rgba(25,135,84,.06);
+
+}
+
+.feature:hover{
+
+    transform:translateY(-8px);
+
+}
+
+footer{
+
+    background:#111827;
+
+    color:white;
+
+    padding:30px;
+
+    margin-top:60px;
+
+    text-align:center;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container">
+
+<a class="navbar-brand" href="index.html">
+
+🏡 DreamVoyage
+
+</a>
+
+<div class="ms-auto">
+
+<a href="index.html" class="btn btn-light me-2">
+
+Home
+
+</a>
+
+<a href="user-dashboard.html" class="btn btn-warning">
+
+Dashboard
+
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- Hero -->
+
+<section class="hero">
+
+<div>
+
+<h1>🤖 AI Property Price Prediction</h1>
+
+<p class="lead">
+
+Estimate Property Prices Instantly
+
+</p>
+
+</div>
+
+</section>
+
+<!-- Prediction Form -->
+
+<div class="container">
+
+<div class="predict-card">
+
+<h2 class="text-center mb-4">
+
+Predict Your Property Price
+
+</h2>
+
+<form id="predictForm">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+City
+
+</label>
+
+<select
+id="city"
+class="form-select">
+
+<option>Chennai</option>
+<option>Bangalore</option>
+<option>Hyderabad</option>
+<option>Coimbatore</option>
+<option>Madurai</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Bedrooms
+
+</label>
+
+<input
+id="bedrooms"
+type="number"
+class="form-control"
+placeholder="Enter Bedrooms"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Bathrooms
+
+</label>
+
+<input
+id="bathrooms"
+type="number"
+class="form-control"
+placeholder="Enter Bathrooms"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Square Feet
+
+</label>
+
+<input
+id="sqft"
+type="number"
+class="form-control"
+placeholder="Enter Square Feet"
+required>
+
+</div>
+
+</div>
+
+<button
+class="btn btn-primary w-100">
+
+Predict Price
+
+</button>
+
+</form>
+
+<h3 id="result"></h3>
+
+</div>
+
+</div>
+
+<!-- Features -->
+
+<section class="container py-5">
+
+<h2 class="text-center mb-5">
+
+Why Use Our AI?
+
+</h2>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="feature">
+
+<h1>⚡</h1>
+
+<h4>Fast Prediction</h4>
+
+<p>
+
+Get estimated property prices within seconds.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="feature">
+
+<h1>📊</h1>
+
+<h4>Market Analysis</h4>
+
+<p>
+
+Based on city, size and property features.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="feature">
+
+<h1>🎯</h1>
+
+<h4>Better Decisions</h4>
+
+<p>
+
+Know the estimated value before buying or selling.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+<h4>
+
+🏡 DreamVoyage
+
+</h4>
+
+<p>
+
+AI Powered Real Estate Platform
+
+</p>
+
+<p>
+
+© 2026 DreamVoyage. All Rights Reserved.
+
+</p>
+
+</footer>
+
+<script src="../js/predict-price.js"></script>
+
+<script>
+
+const result=document.getElementById("result");
+
+const observer=new MutationObserver(()=>{
+
+if(result.innerHTML.trim()!=""){
+
+result.style.display="block";
+
+}
+
+});
+
+observer.observe(result,{childList:true});
+
+</script>
+
+</body>
+
+</html>
