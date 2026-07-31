@@ -1,3 +1,10 @@
 flask
 flask-cors
 mysql-connector-python
+gunicorn
+joblib
+numpy
+pandas
+scikit-learn
+bcrypt
+werkzeug
