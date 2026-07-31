@@ -8,7 +8,11 @@ import joblib
 import pandas as pd
 import bcrypt
 
-app = Flask(__name__)
+app = Flask(
+    __name__,
+    static_folder="../frontend",
+    static_url_path=""
+)
 CORS(app)
 
 UPLOAD_FOLDER = "uploads"
@@ -24,7 +28,7 @@ def get_db_connection():
 
 @app.route("/")
 def home():
-    return "DreamVoyage Backend Running 🚀"
+    return app.send_static_file("index.html")
 @app.route("/register", methods=["POST"])
 def register():
     try:
@@ -509,6 +513,25 @@ def uploaded_file(filename):
         filename
     )
 
+
+@app.route("/pages/<path:filename>")
+def pages(filename):
+    return send_from_directory("../frontend/pages", filename)
+
+
+@app.route("/css/<path:filename>")
+def css(filename):
+    return send_from_directory("../frontend/css", filename)
+
+
+@app.route("/js/<path:filename>")
+def js(filename):
+    return send_from_directory("../frontend/js", filename)
+
+
+@app.route("/images/<path:filename>")
+def images(filename):
+    return send_from_directory("../frontend/images", filename)
 
 if __name__ == "__main__":
     app.run(debug=True)
