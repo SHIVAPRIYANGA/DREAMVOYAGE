@@ -1,53 +1,3 @@
-document.getElementById("propertyForm").addEventListener("submit", function (e) {
-
-    e.preventDefault();
-
-    const property = {
-
-        property_name: document.getElementById("property_name").value,
-        city: document.getElementById("city").value,
-        area: document.getElementById("area").value,
-        price: document.getElementById("price").value,
-        bedrooms: document.getElementById("bedrooms").value,
-        bathrooms: document.getElementById("bathrooms").value,
-        sqft: document.getElementById("sqft").value,
-        image: document.getElementById("image").value,
-        description: document.getElementById("description").value
-
-    };
-
-    fetch("/add_property", {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify(property)
-
-    })
-
-    .then(response => response.json())
-
-    .then(data => {
-
-        alert(data.message);
-
-        document.getElementById("propertyForm").reset();
-
-    })
-
-    .catch(error => {
-
-        console.error(error);
-
-        alert("Error adding property.");
-
-    });
-
-});
-
 document.getElementById("propertyForm").addEventListener("submit", function(e){
 
     e.preventDefault();
@@ -63,26 +13,34 @@ document.getElementById("propertyForm").addEventListener("submit", function(e){
     formData.append("sqft", document.getElementById("sqft").value);
     formData.append("description", document.getElementById("description").value);
 
-    formData.append(
-        "image",
-        document.getElementById("image").files[0]
-    );
+    const image = document.getElementById("image").files[0];
 
-    fetch("/add_property",{
+    if(image){
+        formData.append("image", image);
+    }
 
-        method:"POST",
+    fetch("/add_property", {
 
-        body:formData
+        method: "POST",
+
+        body: formData
 
     })
-
-    .then(res=>res.json())
-
-    .then(data=>{
+    .then(res => res.json())
+    .then(data => {
 
         alert(data.message);
 
         document.getElementById("propertyForm").reset();
+
+        window.location.href = "manage-properties.html";
+
+    })
+    .catch(error => {
+
+        console.error(error);
+
+        alert("Failed to add property.");
 
     });
 
