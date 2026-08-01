@@ -39,7 +39,7 @@ container.innerHTML+=`
 <div class="card shadow h-100">
 
 <img
-src="http://127.0.0.1:5000/${property.image}"
+src="/${property.image}"
 class="card-img-top">
 
 <div class="card-body">

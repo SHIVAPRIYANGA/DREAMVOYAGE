@@ -37,7 +37,7 @@ document.getElementById("editPropertyForm").addEventListener("submit", function(
 
     };
 
-    fetch(`http://127.0.0.1:5000/update_property/${id}`,{
+    fetch(`/update_property/${id}`,{
 
         method:"PUT",
 

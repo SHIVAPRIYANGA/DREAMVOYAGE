@@ -13,7 +13,7 @@ fetch(`/property/${id}`)
 currentProperty = property;
 
 document.getElementById("propertyImage").src =
-"http://127.0.0.1:5000/"+property.image;
+"/"+property.image;
 
 document.getElementById("propertyName").innerHTML =
 property.property_name;

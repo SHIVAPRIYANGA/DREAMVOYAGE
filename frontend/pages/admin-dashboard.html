@@ -382,29 +382,31 @@ document.getElementById("welcomeUser").innerHTML =
 
 <script>
 
-fetch("http://127.0.0.1:5000/analytics")
+fetch("/analytics")
 
-.then(response => response.json())
+.then(response => {
+    if (!response.ok) {
+        throw new Error("Failed to load analytics");
+    }
+    return response.json();
+})
 
 .then(data => {
 
-document.getElementById("users").innerHTML =
-data.users;
+    document.getElementById("users").innerHTML = data.users;
 
-document.getElementById("properties").innerHTML =
-data.properties;
+    document.getElementById("properties").innerHTML = data.properties;
 
-document.getElementById("wishlist").innerHTML =
-data.wishlist;
+    document.getElementById("wishlist").innerHTML = data.wishlist;
 
-document.getElementById("average").innerHTML =
-"₹ " + Number(data.average_price).toLocaleString();
+    document.getElementById("average").innerHTML =
+        "₹ " + Number(data.average_price).toLocaleString("en-IN");
 
 })
 
 .catch(error => {
 
-console.log(error);
+    console.error(error);
 
 });
 
